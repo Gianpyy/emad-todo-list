@@ -1,4 +1,5 @@
 import 'package:emad_todo_list/activity.dart';
+import 'package:emad_todo_list/modals.dart';
 import 'package:material_ui/material_ui.dart';
 import 'activity_card.dart';
 
@@ -67,12 +68,8 @@ class _MyHomePageState extends State<MyHomePage> {
 
                 return ActivityCard(
                   activity: activity,
-                  onTap: () {
-                    // Updates state
-                    setState(() {
-                      activity.done = !activity.done;
-                    });
-                  },
+                  onTap: () => _handleToggleActivity(activity),
+                  onLongPress: () => _handleDeleteActivity(activity),
                 );
               },
             ),
@@ -80,12 +77,35 @@ class _MyHomePageState extends State<MyHomePage> {
         ],
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          // TODO: Add modal window for adding an activity
-        },
+        onPressed: _handleAddActivity,
         tooltip: 'Aggiungi attività',
         child: const Icon(Icons.add),
       ),
     );
+  }
+
+  void _handleToggleActivity(Activity activity) {
+    setState(() {
+      activity.done = !activity.done;
+    });
+  }
+
+  Future<void> _handleAddActivity() async {
+    final newActivity = await showCreateActivityModal(context);
+    if (newActivity != null) {
+      setState(() {
+        _activities.add(newActivity);
+      });
+    }
+  }
+
+  // Metodo collegato all'onLongPress della card
+  Future<void> _handleDeleteActivity(Activity activity) async {
+    final confirmed = await showDeleteActivityModal(context, activity);
+    if (confirmed == true) {
+      setState(() {
+        _activities.remove(activity);
+      });
+    }
   }
 }
