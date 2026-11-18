@@ -2,7 +2,7 @@
 
 L’obiettivo di questo compito, da svolgere singolarmente, è prendere familiarità con i concetti di base di Flutter visti a lezione (composizione di widget, gestione dello stato, input dell’utente e navigazione tra schermate) realizzando una semplice app per la gestione di una lista di attività (to-do list). Il codice va pubblicato su una repository GitHub pubblica e l’app eseguita su emulatore e su smartphone fisico.
 
-Nota: come spunto didattico, alcune app consegnate verranno provate insieme in classe, con una breve demo dal vivo a cura di chi le ha sviluppate.
+_Nota: come spunto didattico, alcune app consegnate verranno provate insieme in classe, con una breve demo dal vivo a cura di chi le ha sviluppate._
 
 ## Istruzioni
 ### 1. Dominio
