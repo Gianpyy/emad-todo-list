@@ -14,11 +14,11 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Todo list',
+      title: 'To-Do List',
       theme: ThemeData(
         colorScheme: .fromSeed(seedColor: Colors.yellow),
       ),
-      home: const MyHomePage(title: 'Todo list'),
+      home: const MyHomePage(title: 'To-Do List'),
     );
   }
 }
@@ -119,7 +119,6 @@ class _MyHomePageState extends State<MyHomePage> {
     }
   }
 
-  // Metodo collegato all'onLongPress della card
   Future<void> _handleDeleteActivity(Activity activity) async {
     final confirmed = await showDeleteActivityModal(context, activity);
     if (confirmed == true) {
