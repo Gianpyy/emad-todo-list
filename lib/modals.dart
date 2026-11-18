@@ -22,9 +22,10 @@ Future<Activity?> showCreateActivityModal(BuildContext context) {
                   TextFormField(
                     controller: titleController,
                     autofocus: true,
+                    autovalidateMode: AutovalidateMode.onUserInteraction,
                     decoration: const InputDecoration(
                       labelText: 'Titolo',
-                      hintText: 'Es. Studiare Flutter',
+                      hintText: 'Es. Fare la spesa',
                       border: OutlineInputBorder(),
                     ),
                     validator: (value) {
