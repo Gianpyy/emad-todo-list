@@ -61,11 +61,22 @@ class _MyHomePageState extends State<MyHomePage> {
 
           // List with all the tasks
           Expanded(
-            child: ListView.builder(
+            child: _activities.isEmpty
+            // S2 Variante: nessuna attività
+                ? const Center(
+              child: Padding(
+                padding: EdgeInsets.all(24.0),
+                child: Text(
+                  'Nessuna attività presente.\nPremi il pulsante + in basso per aggiungerne una.',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(fontSize: 16, color: Colors.grey),
+                ),
+              ),
+            )
+                : ListView.builder(
               itemCount: _activities.length,
               itemBuilder: (context, index) {
                 final activity = _activities[index];
-
                 return ActivityCard(
                   activity: activity,
                   onTap: () => _handleToggleActivity(activity),
