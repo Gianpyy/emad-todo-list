@@ -96,6 +96,15 @@ class _MyHomePageState extends State<MyHomePage> {
       setState(() {
         _activities.add(newActivity);
       });
+
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text('Attività "${newActivity.title}" aggiunta'),
+            duration: const Duration(seconds: 2),
+          ),
+        );
+      }
     }
   }
 
